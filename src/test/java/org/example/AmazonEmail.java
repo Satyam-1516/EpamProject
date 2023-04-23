@@ -2,7 +2,9 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -24,9 +26,42 @@ public class AmazonEmail {
         driver.findElement(By.xpath("//*[@id=\"continue\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"ap_password\"]")).sendKeys("Str@1516");
         driver.findElement(By.xpath("//*[@id=\"signInSubmit\"]")).click();
+        ////////HOVER////////
+        WebElement ele = driver.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]/span"));
 
-        Select select=new Select(driver.findElement(By.xpath("//a[@id='nav-link-accountList']")));
-        select.selectByVisibleText("Create a Wish List");
+        //Creating object of an Actions class
+        Actions action = new Actions(driver);
 
+        //Performing the mouse hover action on the target element.
+        action.moveToElement(ele).perform();
+///////////////////////////////////////////////////////////////////////
+        /// CREATING WISHLIST
+        driver.findElement(By.xpath("//span[normalize-space()='Create a Wish List']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//input[@aria-labelledby='createList-announce']")).click();
+        Thread.sleep(4000);
+
+        driver.findElement(By.xpath("//input[@id='list-name']")).clear();
+        Thread.sleep(4000);
+
+        driver.findElement(By.xpath("//input[@id='list-name']")).sendKeys("My WishList");
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//*[@id=\"wl-redesigned-create-list\"]/span/span/input")).click();
+
+
+        //// ITEM SEARCH CLICK
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("Mouse");
+        Thread.sleep(10000);
+        driver.findElement(By.cssSelector("#nav-search-submit-button")).click();
+        Thread.sleep(8000);
+
+        /// ITEM CLICK
+        driver.findElement(By.xpath("//div[contains(@class,'rush-component s-featured-result-item')]//span[@class='a-size-medium a-color-base a-text-normal'][contains(text(),'HP X1000 Wired USB Mouse with 3 Handy Buttons, Fas')]")).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//input[@id='add-to-wishlist-button']")).click();
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//span[@id='atwl-list-privacy-12F0BI9R2UJA5']"));
+        Thread.sleep(4000);
     }
 }
