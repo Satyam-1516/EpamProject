@@ -70,13 +70,15 @@ public class AmazonEmail {
         Thread.sleep(4000);
         driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']")).sendKeys("DEATH: AN INSIDE STORY");
 
-                Thread.sleep(10000);
+        Thread.sleep(10000);
         driver.findElement(By.cssSelector("#nav-search-submit-button")).click();
         Thread.sleep(10000);
-
+        js.executeScript("window.scrollBy(0,360)");
+        Thread.sleep(8000);
         /// ITEM CLICK
-        // commented out below line because due ads unable yo click the desired link
-        //driver.findElement(By.cssSelector("div[class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1'] h2[class='a-size-mini a-spacing-none a-color-base s-line-clamp-2'] span:nth-child(4)")).click();
+        // commented out below line because due ads unable To click the desired link
+//        driver.findElement(By.cssSelector("div[class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1'] h2[class='a-size-mini a-spacing-none a-color-base s-line-clamp-2'] span:nth-child(4)")).click();
+        driver.findElement(By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[1]/div[1]/div[3]/div/div/div/div/div/div[2]/div/div/div[1]/h2/a/span")).click();
         Thread.sleep(8000);
         String parent=driver.getWindowHandle();
 
@@ -94,6 +96,8 @@ public class AmazonEmail {
                 driver.switchTo().window(child_window);
 
                 System.out.println(driver.switchTo().window(child_window).getTitle());
+                js.executeScript("window.scrollBy(0,360)");
+                Thread.sleep(6000);
                 driver.findElement(By.name("submit.add-to-registry.wishlist")).click();
 
                 Thread.sleep(6000);
@@ -118,7 +122,7 @@ public class AmazonEmail {
         driver.findElement(By.xpath("//div[@class='aok-inline-block aok-align-center'][normalize-space()='More']")).click();
         driver.findElement(By.xpath("//a[@id='editYourList']")).click();
         Thread.sleep(5000);
-        js.executeScript("window.scrollBy(0,360)");
+
         driver.findElement(By.cssSelector("span[class='a-button a-spacing-base a-button-base full-width-element a-button-focus'] input[type='submit']")).click();
         // above line failed because we scroll down the page but we need to scroll the pop upi.e the wishlist popup.
 
