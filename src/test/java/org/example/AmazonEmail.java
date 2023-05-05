@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.Iterator;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 public class AmazonEmail {
@@ -28,9 +29,12 @@ public class AmazonEmail {
     @Test
     public void getTitleFromPage() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        driver.findElement(By.xpath("//*[@id=\"ap_email\"]")).sendKeys("str.life.satyam@gmail.com");
+        ResourceBundle r= ResourceBundle.getBundle("config");
+        String username=r.getString("username");
+        String password=r.getString("password");
+        driver.findElement(By.xpath("//*[@id=\"ap_email\"]")).sendKeys(username);
         driver.findElement(By.xpath("//*[@id=\"continue\"]")).click();
-        driver.findElement(By.xpath("//*[@id=\"ap_password\"]")).sendKeys("Str@1516");
+        driver.findElement(By.xpath("//*[@id=\"ap_password\"]")).sendKeys(password);
         driver.findElement(By.xpath("//*[@id=\"signInSubmit\"]")).click();
 
         Thread.sleep(15000);

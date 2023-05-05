@@ -3,6 +3,7 @@ package org.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -19,9 +20,11 @@ public class IncorrectIdPass {
     }
     @Test
     public void getTitleFromPage() throws InterruptedException {
-        driver.findElement(By.xpath("//*[@id=\"ap_email\"]")).sendKeys("str.life.satya@gmail.com");
+        driver.findElement(By.xpath("//*[@id=\"ap_email\"]")).sendKeys("str.life.satyam@gmail.com");
         driver.findElement(By.xpath("//*[@id=\"continue\"]")).click();
-        driver.findElement(By.xpath("//*[@id=\"ap_password\"]")).sendKeys("Str@15");
+        driver.findElement(By.xpath("//*[@id=\"ap_password\"]")).sendKeys("abcdef");
         driver.findElement(By.xpath("//*[@id=\"signInSubmit\"]")).click();
+        boolean isEmptyFieldsLoginSuccessful = driver.getCurrentUrl().contains("signin");
+        Assert.assertEquals(isEmptyFieldsLoginSuccessful,true);
     }
 }
