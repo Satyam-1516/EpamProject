@@ -1,0 +1,41 @@
+
+¨
+java:S3577"ŠRename class "AmazonEmail" to match the regular expression: '^((Test|IT)[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]*(Test|Tests|TestCase|IT|ITCase))$'(ü˜ÿ¼8Œœõ½ş0
+F
+java:S2925$"$Remove this use of "Thread.sleep()".(ä‘²œøÿÿÿÿ8œõ½ş0
+F
+java:S2925/"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8œõ½ş0
+F
+java:S29251"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8œõ½ş0
+F
+java:S29254"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8œõ½ş0
+F
+java:S29257"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8œõ½ş0
+F
+java:S29259"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8œõ½ş0
+A
+java:S2925>"$Remove this use of "Thread.sleep()".(Úõôñ8œõ½ş0
+A
+java:S2925A"$Remove this use of "Thread.sleep()".(ø¸¼8œõ½ş0
+A
+java:S2925C"$Remove this use of "Thread.sleep()".(ø¸¼8œõ½ş0
+F
+java:S2925E"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8œõ½ş0
+F
+java:S2925J"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8œõ½ş0
+A
+java:S2925\"$Remove this use of "Thread.sleep()".(§¦ÙÁ8‘œõ½ş0
+A
+java:S2925_"$Remove this use of "Thread.sleep()".(§¦ÙÁ8‘œõ½ş0
+F
+java:S2925k"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8‘œõ½ş0
+F
+java:S2925m"$Remove this use of "Thread.sleep()".(•Ãÿÿÿÿÿ8‘œõ½ş0
+A
+java:S2925t"$Remove this use of "Thread.sleep()".(¬Æ„°8’œõ½ş0
+B
+java:S2925‰"$Remove this use of "Thread.sleep()".(§¦ÙÁ8Æ¾éÑş0
+B
+java:S2925Œ"$Remove this use of "Thread.sleep()".(§¦ÙÁ8Æ¾éÑş0
+B
+java:S2925"$Remove this use of "Thread.sleep()".(§¦ÙÁ8Æ¾éÑş0

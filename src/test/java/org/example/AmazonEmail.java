@@ -3,6 +3,7 @@ package org.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -54,16 +55,7 @@ public class AmazonEmail {
         Thread.sleep(8000);
         driver.findElement(By.xpath("//*[@id=\"wl-redesigned-create-list\"]/span/span/input")).click();
         Thread.sleep(8000);
-        // WISHLIST NAME EDIT
-//        driver.findElement(By.xpath("//div[@class='aok-inline-block aok-align-center'][normalize-space()='More']")).click();
-//        driver.findElement(By.xpath("//a[@id='editYourList']")).click();
-//
-//        Thread.sleep(5000);
-//
-//        driver.findElement(By.xpath("//input[@id='list-settings-name']")).clear();
-//        Thread.sleep(8000);
-//        driver.findElement(By.xpath("//input[@id='list-name']")).sendKeys("My WishList 1");
-//        Thread.sleep(8000);
+
 
 
         //// ITEM SEARCH CLICK
@@ -123,8 +115,36 @@ public class AmazonEmail {
         driver.findElement(By.xpath("//a[@id='editYourList']")).click();
         Thread.sleep(5000);
 
-        driver.findElement(By.cssSelector("span[class='a-button a-spacing-base a-button-base full-width-element a-button-focus'] input[type='submit']")).click();
-        // above line failed because we scroll down the page but we need to scroll the pop upi.e the wishlist popup.
+
+        //////////////////////////////////////////////////////////////////////////////////
+
+        // Renaming WishList////
+        WebElement nameElement = driver.findElement(By.xpath("//input[@id='list-settings-name']"));
+        nameElement.click();
+
+        // Enable editing mode by simulating a keyboard press of the F2 key
+        nameElement.sendKeys(Keys.F2);
+
+        // Replace the current name with the new one
+        String newName = "My New Wishlist Name";
+        nameElement.clear();
+        nameElement.sendKeys(newName);
+
+        driver.findElement(By.xpath("//input[@aria-labelledby='list-settings-save-announce']")).click();
+
+        //////////////////////////////////////////////
+        /// DELETING WISHLIST ///
+        Thread.sleep(6000);
+        driver.findElement(By.xpath("//div[@class='aok-inline-block aok-align-center'][normalize-space()='More']")).click();
+        driver.findElement(By.xpath("//a[@id='editYourList']")).click();
+        Thread.sleep(6000);
+        // Find the wishlist's delete button and click on it
+        WebElement deleteButton = driver.findElement(By.xpath("//*[@id=\"list-settings-container\"]/span/span/span/input"));
+        deleteButton.click();
+        Thread.sleep(6000);
+        // Confirm the deletion by clicking on the "Delete" button in the confirmation dialog
+        WebElement confirmDeleteButton = driver.findElement(By.xpath("//*[@id=\"list-delete-confirm\"]/span/input"));
+        confirmDeleteButton.click();
 
     }
 }
